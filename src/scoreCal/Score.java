@@ -1,7 +1,11 @@
 package scoreCal;
 
-public interface Score {
+import java.util.ArrayList;
 
-	int calScore();
+import bowling.Frame;
+
+public interface Score {
+	
+	int calScore(ArrayList<Frame> frames, Frame frame);
 
 }

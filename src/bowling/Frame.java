@@ -14,7 +14,7 @@ public class Frame {
 		isClosed = true;
 	}
 	
-	void roll() {
+	public void roll() {
 		if (!isClosed) {
 			Shoot shoot = new Shoot(pin);
 			shoot.roll();
@@ -47,7 +47,7 @@ public class Frame {
 		this.score = score;
 	}
 	
-	ArrayList<Integer> getEachScores() {
+	public ArrayList<Integer> getEachScores() {
 		return shootResult;
 	}
 
