@@ -11,8 +11,6 @@ import scoreCal.Strike;
 
 public class ScoreBoard {
 	public static final String NEWLINE = System.getProperty("line.separator");
-	String upperBoard = "=========================================================================================================";
-	String frameline0 = "|    1    |    2    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |      10     |";
 
 	ArrayList<Frame> frames;
 	int scoreSum;
@@ -42,44 +40,37 @@ public class ScoreBoard {
 	}
 
 	private void createBoard() {
-		if(frames == null) {
+		if (frames == null) {
 			System.err.println("Frame이 없습니다!");
 			return;
 		}
-		
+
 		StringBuilder sb = new StringBuilder();
-		sb.append(upperBoard);
-		sb.append(NEWLINE);
-		sb.append(frameline0);
-		sb.append(NEWLINE);
-		sb.append(upperBoard);
-		sb.append(NEWLINE);
+		scoreSum = 0;
+		calScore();
+
 		for (Frame fr : frames) {
+			sb.append(frames.indexOf(fr));
+			sb.append(" : ( ");
 			if (fr.getStatus() == FrameStatus.SPARE) {
 				sb.append(fr.getEachScores().get(0));
-				sb.append(" |  ");
+				sb.append(" , ");
 				sb.append(FrameStatus.SPARE.getStatus());
-			}
-			else
+			} else {
 				for (int num : fr.getEachScores()) {
-					sb.append(" |  ");
-				sb.append(symbolTrans(num));
+					sb.append(symbolTrans(num));
+					sb.append(" , ");
+				}
 			}
-		}
-
-		sb.append(NEWLINE);
-		calScore();
-		scoreSum = 0;
-
-		for (Frame fr : frames) {
-			sb.append("I   ");
 			if (fr.getTotalScore() >= 0) {
 				scoreSum += fr.getTotalScore();
-				sb.append(Integer.toString(scoreSum));
-				System.out.println(scoreSum);
+				sb.append("누적: ");
+				sb.append(scoreSum);
 			}
-			sb.append("   I");
+			sb.append(" )");
+			sb.append(NEWLINE);
 		}
+
 		System.out.println(sb);
 	}
 
@@ -87,7 +78,7 @@ public class ScoreBoard {
 		if (score == 0)
 			return FrameStatus.GUTTER.getStatus();
 		if (score == 10)
-			return FrameStatus.STRIKE.getStatus() + " |  ";
+			return FrameStatus.STRIKE.getStatus();
 		else
 			return Integer.toString(score);
 	}
