@@ -13,7 +13,7 @@ public class Frame {
 	void close() {
 		isClosed = true;
 	}
-
+	
 	void roll() {
 		if (!isClosed) {
 			Shoot shoot = new Shoot(pin);
@@ -27,15 +27,15 @@ public class Frame {
 	private void statusCheck() {
 		if(pin == 0 && shootResult.size() == 1) {
 			isClosed = true;
-			status = FrameStatus.STRIKE;
+			setStatus(FrameStatus.STRIKE);
 		}
 		if(pin == 0 && shootResult.size() == 2) {
 			isClosed = true;
-			status = FrameStatus.SPARE;
+			setStatus(FrameStatus.SPARE);
 		}
 		if(pin != 0 && shootResult.size() == 2) {
 			isClosed = true;
-			status = FrameStatus.OPEN;
+			setStatus(FrameStatus.OPEN);
 		}
 	}
 
@@ -46,8 +46,12 @@ public class Frame {
 	void setScore(int score) {
 		this.score = score;
 	}
+	
+	ArrayList<Integer> getEachScores() {
+		return shootResult;
+	}
 
-	public boolean isFrameClosed() {
+	public boolean isClosed() {
 		return isClosed;
 	}
 
@@ -55,7 +59,7 @@ public class Frame {
 		return status;
 	}
 
-	void setStatus(FrameStatus status) {
+	private void setStatus(FrameStatus status) {
 		this.status = status;
 	}
 }
