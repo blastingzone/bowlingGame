@@ -12,13 +12,13 @@ public class FrameTest extends TestCase {
 	
 	public void testname() throws Exception {
 		Frame testFrame = new Frame();
-		assertEquals(0, testFrame.getScore());
+		assertEquals(0, testFrame.getTotalScore());
 		
 		testFrame.setScore(10);
-		assertEquals(0, testFrame.getScore());
+		assertEquals(0, testFrame.getTotalScore());
 		
 		testFrame.close();
 		testFrame.setScore(10);
-		assertEquals(10, testFrame.getScore());
+		assertEquals(10, testFrame.getTotalScore());
 	}
 }

@@ -11,6 +11,6 @@ public class ShootTest extends TestCase {
 	public void testRoll() throws Exception {
 		Shoot testShoot = new Shoot(10);
 		testShoot.roll();
-		testShoot.getScore();
+		assertEquals(testShoot.hit, testShoot.getScore());
 	}
 }
