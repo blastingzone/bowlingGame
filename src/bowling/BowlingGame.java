@@ -1,5 +1,15 @@
 package bowling;
 
-public class BowlingGame {
+import java.util.ArrayList;
 
+public class BowlingGame {
+	ArrayList<User> players = new ArrayList<User>();
+	int userNum;
+	
+	BowlingGame(int userNum) {
+		this.userNum = userNum;
+		for(; userNum >0; userNum--) {
+			players.add(new User());
+		}
+	}
 }
