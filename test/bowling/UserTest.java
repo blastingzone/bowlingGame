@@ -11,4 +11,9 @@ public class UserTest extends TestCase {
 		user.roll();
 		System.out.println(user.getFrame());
 	}
+	
+	public void testGetFrame() throws Exception {
+		User user = new User();
+		assertEquals(0, user.getFrame());
+	}
 }

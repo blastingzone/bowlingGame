@@ -17,7 +17,7 @@ public class Spare implements Score {
 		for (int score : frame.getEachScores()) {
 			this.score += score;
 		}
-		if(index < frames.size() - 1) {
+		if(index < frames.size() - 1 && !frames.get(index+1).getEachScores().isEmpty()) {
 			this.score += frames.get(index + 1).getEachScores().get(0);
 			return score;
 		}

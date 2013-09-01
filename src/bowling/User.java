@@ -24,11 +24,16 @@ public class User {
 	
 	void roll() {
 		presentFrame.roll();
-		System.out.println(presentFrame.getEachScores());
 		if(presentFrame.isClosed() && index < BowlingGame.MAX_FRAME) {
 			index++;
-			frames.add(new Frame());
+			
+			if(index != BowlingGame.MAX_FRAME -1)
+				frames.add(new Frame());
+			else
+				frames.add(new LastFrame());
+			
 			presentFrame = frames.get(index);
 		}
+		showScore();
 	}
 }

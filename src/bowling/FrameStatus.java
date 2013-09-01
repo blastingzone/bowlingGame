@@ -1,7 +1,7 @@
 package bowling;
 
 public enum FrameStatus {
-	OPEN("OPEN"), STRIKE("STRIKE"), SPARE("SPARE");
+	OPEN("OPEN"), STRIKE("X"), SPARE("/"), GUTTER("-");
 	
 	private String status;
 	FrameStatus(String string) {

@@ -9,6 +9,9 @@ public class Open implements Score{
 
 	@Override
 	public int calScore(ArrayList<Frame> frames, Frame frame) {
+		if (frame.getEachScores().size() < 2)
+			return -1;
+		
 		for (int score : frame.getEachScores()) {
 			this.score += score;
 		}

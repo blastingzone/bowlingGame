@@ -11,7 +11,7 @@ public class Strike implements Score {
 	@Override
 	public int calScore(ArrayList<Frame> frames, Frame frame) {
 		int index = frames.indexOf(frame);
-		int bonusCount = 2;
+		final int bonusCount = 2;
 		
 		if(frame.getEachScores().size() != 1)
 			return -1;
@@ -29,7 +29,7 @@ public class Strike implements Score {
 				allShoot.add(score);
 		}
 		
-		if (allShoot.size() < 2)
+		if (allShoot.size() < bonusCount)
 			return -1;
 		else {
 			this.score += (allShoot.get(0) + allShoot.get(1));

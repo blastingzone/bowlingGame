@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Frame {
 	final static int MAX_SHOOT_CHANCE = 2;
-	private int pin = 10;
-	private int score = 0;
-	private boolean isClosed = false;
-	private FrameStatus status = FrameStatus.OPEN;
-	private ArrayList<Integer> shootResult = new ArrayList<Integer>();
+	protected int pin = 10;
+	protected int score = 0;
+	protected boolean isClosed = false;
+	protected FrameStatus status = FrameStatus.OPEN;
+	protected ArrayList<Integer> shootResult = new ArrayList<Integer>();
 
 	void close() {
 		isClosed = true;
@@ -24,7 +24,7 @@ public class Frame {
 		}
 	}
 	
-	private void statusCheck() {
+	protected void statusCheck() {
 		if(pin == 0 && shootResult.size() == 1) {
 			isClosed = true;
 			setStatus(FrameStatus.STRIKE);
@@ -59,7 +59,7 @@ public class Frame {
 		return status;
 	}
 
-	private void setStatus(FrameStatus status) {
+	protected void setStatus(FrameStatus status) {
 		this.status = status;
 	}
 }
